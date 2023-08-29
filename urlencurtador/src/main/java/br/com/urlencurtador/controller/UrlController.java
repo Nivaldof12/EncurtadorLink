@@ -1,5 +1,9 @@
 package br.com.urlencurtador.controller;
 
+import java.io.IOException;
+
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,13 +29,20 @@ public class UrlController {
 		return "index";
 	}	
 	
-	@PostMapping(value = "/url/incluir")
-	public String incluir(Url url) {
-		
-		urlService.incluir(url);
-		
-		return "redirect:/";
-	}
+    @PostMapping(value = "/url/incluir")
+    public String incluir(Url url) {
+        if (url.getShortUrl() == null || url.getShortUrl().isEmpty()) {
+            // Gera uma string aleatória de 6 caracteres
+            String randomChars = urlService.generateRandomChars(6);
+            url.setShortUrl("http://localhost:8080/" + randomChars);
+        } else {
+            url.setShortUrl("http://localhost:8080/" + url.getShortUrl());
+        }
+        
+        urlService.incluir(url);
+        
+        return "redirect:/";
+    }
 		
 	@GetMapping(value = "/url/excluir/{id}")
 	public String excluir(@PathVariable Long id) {
@@ -40,4 +51,18 @@ public class UrlController {
 
 		return "redirect:/";
 	}
+	
+    @GetMapping(value = "/{shortUrl}")
+    public String redirecionar(@PathVariable String shortUrl, HttpServletResponse response) throws IOException {
+        String originalUrl = urlService.obterUrlOriginalPorShortUrl("http://localhost:8080/" + shortUrl);
+
+        if (originalUrl != null) {
+
+            response.sendRedirect(originalUrl);
+            return null;
+        } else {
+            return "redirect:/";
+        }
+    }
+	
 }
