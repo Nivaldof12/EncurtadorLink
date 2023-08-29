@@ -24,14 +24,14 @@
         <tr>
             <th>URL Original</th>
             <th>URL Encurtado</th>
-            <th>Clicaram no link</th>
+            <th>Acessos</th>
             <th>Delete</th>
         </tr>
         <c:forEach var="url" items="${urls}">
             <tr>
                 <td>${url.originalUrl}</td>
                 <td><a href="${url.shortUrl}" target="_blank">${url.shortUrl}</a></td>
-                <td>${url.clickCount}</td>
+                <td>${url.accessCount}</td>
                 <td>
                     <form action="/url/excluir/${url.id}" method="get">
                         <button type="submit">Excluir</button>
