@@ -8,5 +8,6 @@ import br.com.urlencurtador.domain.Url;
 @Repository
 public interface UrlRepository extends CrudRepository<Url, Long> {
 
+	Url findByShortUrl(String shortUrl);
 }
 
