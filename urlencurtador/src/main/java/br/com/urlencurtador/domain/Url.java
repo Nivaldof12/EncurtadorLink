@@ -15,8 +15,8 @@ public class Url {
 
     @Column(nullable = false)
     private String shortUrl;
-
-    private int clickCount = 0;
+    
+    private int accessCount = 0;
 
 	public Long getId() {
 		return id;
@@ -42,12 +42,14 @@ public class Url {
 		this.shortUrl = shortUrl;
 	}
 
-	public int getClickCount() {
-		return clickCount;
+	public int getAccessCount() {
+		return accessCount;
 	}
 
-	public void setClickCount(int clickCount) {
-		this.clickCount = clickCount;
+	public void setAccessCount(int accessCount) {
+		this.accessCount = accessCount;
 	}
+
+	
 }
 
