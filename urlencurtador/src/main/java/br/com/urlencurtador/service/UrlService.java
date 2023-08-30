@@ -56,4 +56,7 @@ public class UrlService {
         return urlRepository.findByShortUrl(shortUrl);
     }
     
+    public boolean hasSpecialCharacters(String input) {
+        return input.matches(".*[@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?]+.*");
+    }
 }

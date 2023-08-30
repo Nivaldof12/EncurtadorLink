@@ -39,6 +39,14 @@ public class UrlController {
             model.addAttribute("urls", urlService.obterLista());
             return "index";
         }
+        
+        if (url.getShortUrl() != null && !url.getShortUrl().isEmpty()) {
+            if (urlService.hasSpecialCharacters(url.getShortUrl())) {
+                model.addAttribute("mensagem", "Você não pode criar link com caracteres especiais!");
+                model.addAttribute("urls", urlService.obterLista());
+                return "index";
+            }
+        }
     	
         if (url.getShortUrl() == null || url.getShortUrl().isEmpty()) {
             // Para essa aplicação gerar 6 caracteres aleatórios é suficiente.
