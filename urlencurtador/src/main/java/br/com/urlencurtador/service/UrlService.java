@@ -50,5 +50,10 @@ public class UrlService {
         }
         
         return null;
-    } 
+    }
+    
+    public Url obtershortUrl(String shortUrl) {
+        return urlRepository.findByShortUrl(shortUrl);
+    }
+    
 }

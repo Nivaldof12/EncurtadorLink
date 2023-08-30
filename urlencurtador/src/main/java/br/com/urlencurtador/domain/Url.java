@@ -13,7 +13,7 @@ public class Url {
     @Column(nullable = false)
     private String originalUrl;
 
-    @Column(nullable = false)
+    @Column(unique = true)
     private String shortUrl;
     
     private int accessCount = 0;

@@ -30,9 +30,18 @@ public class UrlController {
 	}	
 	
     @PostMapping(value = "/url/incluir")
-    public String incluir(Url url) {
+    public String incluir(Url url, Model model) {
+    	
+        Url urlExistente = urlService.obtershortUrl("http://localhost:8080/" + url.getShortUrl());
+        
+        if (urlExistente != null) {
+            model.addAttribute("mensagem", "O Url: http://localhost:8080/"+ url.getShortUrl()+" Já está cadastrado no sistema.");
+            model.addAttribute("urls", urlService.obterLista());
+            return "index";
+        }
+    	
         if (url.getShortUrl() == null || url.getShortUrl().isEmpty()) {
-            // Gera uma string aleatória de 6 caracteres
+            // Para essa aplicação gerar 6 caracteres aleatórios é suficiente.
             String randomChars = urlService.generateRandomChars(6);
             url.setShortUrl("http://localhost:8080/" + randomChars);
         } else {
