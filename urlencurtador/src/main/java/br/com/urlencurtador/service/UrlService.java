@@ -57,6 +57,6 @@ public class UrlService {
     }
     
     public boolean hasSpecialCharacters(String input) {
-        return input.matches(".*[@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?]+.*");
+    	return input.matches(".*[@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?\\s]+.*");
     }
 }
