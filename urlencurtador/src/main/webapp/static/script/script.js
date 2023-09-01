@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", function() {
 	const copyButtons = document.querySelectorAll(".copy-button");
 
@@ -18,4 +17,3 @@ document.addEventListener("DOMContentLoaded", function() {
 		document.body.removeChild(textarea);
 	}
 });
-
