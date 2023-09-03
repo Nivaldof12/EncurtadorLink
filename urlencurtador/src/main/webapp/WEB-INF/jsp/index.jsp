@@ -42,7 +42,7 @@
 				<h1>Mais do que apenas um encurtador de URL</h1>
 				<p>Crie links personalizados e tenha o controle de quantas vezes
 					a sua URL foi acessada.</p>
-				<a href="#">Criar Link</a>
+				<a href="#urlForm">Criar Link</a>
 			</div>
 			<div class="hero-image">
 				<img src="${pageContext.request.contextPath}/static/img/main.png"
@@ -64,7 +64,7 @@
 			</div>
 		</c:if>
 
-		<form action="/url/incluir" method="post">
+		<form id="urlForm" action="/url/incluir" method="post">
 			<input type="text" placeholder="Link que deseja encurtar..."
 				name="originalUrl" required /> <input type="text"
 				placeholder="nome que deseja personalizar... (Opcional)"
