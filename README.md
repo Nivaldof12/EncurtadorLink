@@ -18,6 +18,7 @@
 
 - Java
 - Spring Boot
+- JavaScript
 - JSP
 - CSS
 - MySQL
