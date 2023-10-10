@@ -9,7 +9,6 @@
   <img src="https://github.com/Nivaldof12/EncurtadorLink/assets/88409759/9fcd79f5-3741-4219-b630-0dbf980ee813" alt="Lista da tela principal" >
 </div>
 
-<p align="center"><a href="https://appcomidas.up.railway.app/">Ver Projeto</a></p>
 <p align="center">:warning: OBS: O cadastro da variável shortUrl não pode ser duplicado e não pode conter caracteres especiais!</p>
 
 ---
